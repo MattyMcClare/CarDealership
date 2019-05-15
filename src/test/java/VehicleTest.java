@@ -16,7 +16,7 @@ public class VehicleTest {
     public void setUp() throws Exception {
         engine = new Engine("Petrol");
         tyre = new Tyre("Dunlop");
-        petrolCar = new PetrolCar(engine, tyre, 1000, "pink", 0);
+        petrolCar = new PetrolCar(engine, tyre, 10000, "pink", 0);
     }
 
     @Test
@@ -31,7 +31,7 @@ public class VehicleTest {
 
     @Test
     public void hasPrice() {
-        assertEquals(1000, petrolCar.getPrice(), 0.01);
+        assertEquals(10000, petrolCar.getPrice(), 0.01);
     }
 
     @Test
@@ -41,6 +41,27 @@ public class VehicleTest {
 
     @Test
     public void hasDamage() {
-        assertEquals(0, petrolCar.getDamage());
+        assertEquals(0, petrolCar.getDamage(),0);
     }
+
+    @Test
+    public void canSetPrice() {
+        petrolCar.setPrice(9000);
+        assertEquals(9000, petrolCar.getPrice(), 0);
+    }
+
+    @Test
+    public void canSetDamage() {
+        petrolCar.setDamage(3);
+        assertEquals(3, petrolCar.getDamage(),0);
+        assertEquals(7000, petrolCar.getPrice(), 0.01);
+    }
+
+//    @Test
+//    public void canResetDamage() {
+//        petrolCar.setDamage(4);
+////        petrolCar.repairDamage();
+//        assertEquals(0, petrolCar.getDamage());
+//
+//    }
 }
