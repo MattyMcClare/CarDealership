@@ -5,7 +5,7 @@ public abstract class Vehicle {
     private Tyre tyre;
     private double price;
     private String colour;
-    private int damage;
+    private double damage;
 
     public Vehicle(Engine engine, Tyre tyre, double price, String colour, int damage) {
         this.engine = engine;
@@ -33,7 +33,7 @@ public abstract class Vehicle {
         return colour;
     }
 
-    public int getDamage() {
+    public double getDamage() {
         return damage;
     }
 
@@ -41,12 +41,14 @@ public abstract class Vehicle {
         this.price = price;
     }
 
-    public void setDamage(int damage) {
+    public void setDamage(double damage) {
         this.damage = damage;
+//        this.price = this.price - damage/10 * this.price;
+        this.price -= damage/10 * this.price;
     }
 
-    public void repairDamage(){
-        this.damage = 0;
-        //change price etc
-    }
+//    public void repairDamage(){
+//        this.damage = 0;
+//        this.
+//    }
 }
